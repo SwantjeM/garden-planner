@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from .models import Plant_info
+
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello World. You're at the garden-planner index.")
+    latest_plants_list = Plant_info.objects.order_by("-pub_date")[:5]
+    output = ", ".join([t.plant_type for t in latest_plants_list])
+    return HttpResponse(output)
 
 def detail(request, plant_info_id):
     return HttpResponse("you're looking at plant variety %s" % plant_info_id)
