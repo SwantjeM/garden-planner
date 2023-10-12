@@ -1,0 +1,9 @@
+{% if latest_plants_list %}
+<ul>
+    {% for plant in latest_plants_list %}
+    <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.plant_type}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No plants are available.</p>
+{% endif %}
