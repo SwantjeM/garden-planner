@@ -20,7 +20,7 @@ def detail(request, plant_info_id):
 
 def varieties(request, plant_info_id):
     response = "You're looking at all varieties in your seed inventory that match plant type %s."
-    variety_list = Seed_inventory.objects.filter(plant_type_id=plant_info_id)
+    variety_list = Seed_inventory.objects.filter(plant_name_id=plant_info_id)
     template = loader.get_template("garden_planner/varieties.html")
     context = {"variety_list": variety_list}
     return HttpResponse(template.render(context, request))
