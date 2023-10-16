@@ -2,6 +2,7 @@ import datetime
 from django.db import models
 from django.utils import timezone
 
+
 # Create your models here.
 
 
@@ -41,6 +42,8 @@ class Plant_info(models.Model):
 class Seed_inventory(models.Model):
     seed_name = models.CharField(max_length=200)
     seed_source = models.CharField(max_length=200, default="", blank=True)
+    seed_link = models.CharField(max_length=1000, default="", blank=True)
+    seed_year = models.PositiveSmallIntegerField(default=timezone.now().year)
     pub_date = models.DateField("date added to DB")
     plant_name = models.ForeignKey(Plant_info, on_delete=models.PROTECT)
     rating = models.IntegerField(default=0)
