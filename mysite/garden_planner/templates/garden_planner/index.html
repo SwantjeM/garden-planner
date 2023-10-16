@@ -1,7 +1,7 @@
 {% if latest_plants_list %}
 <ul>
     {% for plant in latest_plants_list %}
-    <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.plant_type}}</a></li>
+    <li><a href="/garden_planner/{{ plant.id }}/">{{ plant.plant_name}}</a></li>
     {% endfor %}
 </ul>
 {% else %}
